@@ -19,7 +19,7 @@ Ecommerce Websites
         return document.getElementById("useroutput").innerHTML = "My name is " + typedi;
         console.log(typedi)
     }
-        
+    // Java Scripts below
 </script>
 -->
 <p id="home">
@@ -38,17 +38,27 @@ Ecommerce Websites
 </p>
 <p id="useroutput"></p>
 
-<input type="button" value="delete" onclick="removeInnerHtml()" /> 
-<input type="button" value="add" onclick="aDd()"><br>
+<!--<input type="button" value="delete" onclick="removeInnerHtml()" />-->
+<!--inner js--<input type="button" value="add" onclick="aDd()">--><br>
+
+<!--Button---ADD/Append to Display-->
+<input type="button" value="Add" onclick="userOutputADDtoInnHtml()" />
+
+<!--Delete butthon-->
+<input type="button" value="Delete" onclick="userOutputRemoveDeleteInnHtml()">
 
 Name: <input id="userInput" type="text" placeholder="Whats your name" />
+<!--inner js-<input type="button" value="display" onclick="displa()" />-->
 
-<input type="button" value="display" onclick="displa()" />
+<!--Display button-->
+<input type="button" value="display" onclick="userOutputInnHtmlDisplay()" />
+
 
 <!--button for bython-->
 <form action="/successful" method="post" >
     <input id="py" type="text" name="dispy">
-    <input type="submit" value="python" onclick="fromPythonArea()" >
+ <!----   <input type="submit" value="python" onclick="fromPythonArea()" >-->
+    <input type="submit" value="python" onclick="pyThonForm1Delay()" >
 </form>
 
 <p id="FromOutside"> </p>
@@ -61,15 +71,18 @@ Name: <input id="userInput" type="text" placeholder="Whats your name" />
         {{i}}
         <br/>
     {% endfor %}
-    <input type="submit" value="read" onclick="reAd()" >
+    <input type="submit" value="read" onclick="GetDataRead()" >
+<!---    <input type="submit" value="read" onclick="reAd()" >-->
 </form>
-<!--Deleting from displayed List-->
-<!--<form action="/remove" method="POST"></form>-->
+<!--Deleting from displayed List
+    <form action="/remove" method="POST"></form>
+-->
 <input type="text" placeholder="remove username" id="deletUserName">
 <input type="button" value="delete" onclick="deleteFromList()">
 
 <p id="readFrom"></p>
 
+<!----Below has been commented in order to put this code in a separate JavaScript js file
 
 <script>
 // Delete from the list
@@ -112,15 +125,14 @@ function fromPythonArea(){
     const success = document.getElementById("py").value;
     // js time delay
     document.getElementById("useroutput").innerHTML = "submitting your inputs:...'"+success+"..'";
-    /* document.getElementById("useroutput").innerHTML = "Your inputs: '"+success+ "', are getting submitted..."
+    document.getElementById("useroutput").innerHTML = "Your inputs: '"+success+ "', are getting submitted..."
     return document.getElementById("useroutput").innerHTML = "submitted successfully!!"
-        */
     setTimeout(function(){
         document.getElementById("useroutput").innerHTML = "submitted successfully!!"
     },3000)
 
 }
 </script>
-
+---->
 
 {% endblock %}

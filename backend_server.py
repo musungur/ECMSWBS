@@ -24,7 +24,7 @@ def displa():
     print(f"User entered:'{name}'")
     with open("testUserInputstore.txt","a") as fo:
         fo.write(str(name))
-        fo.write("\n")
+        fo.write("")
     time.sleep(5)
     return redirect(url_for("homepage"))
  #   return "Successfully captured user input and saved!!"
