@@ -39,3 +39,8 @@ function pyThonForm1Delay(){
 function GetDataRead(){
     document.getElementById("FromOutside").innerHTML = data;
 }
+
+// read date id=DateTime
+function DateToday(){
+    document.getElementById("DateTime").innerHTML = dateANDtime;
+}

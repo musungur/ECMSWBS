@@ -24,7 +24,7 @@ def displa():
     print(f"User entered:'{name}'")
     with open("testUserInputstore.txt","a") as fo:
         fo.write(str(name))
-        fo.write("")
+        fo.write("\n")
     time.sleep(5)
     return redirect(url_for("homepage"))
  #   return "Successfully captured user input and saved!!"
@@ -53,7 +53,7 @@ def readi():
     with open("testUserInputstore.txt","r") as stre:
         openn = stre.readlines()
 
-        data = json.dumps(openn).split(', ' ', ',30)
+        data = json.dumps(openn).split(', ',30)
 
         return render_template("home.html", data=data)
 
@@ -71,6 +71,23 @@ def remove():
         print(f"Username '{deleteUserWithName}' has been deleted!")
     return redirect(url_for("homepage"))
 '''
+@app.route("/date", methods=["GET"])
+def displayTime():
+    import datetime
+    class Showdate:
+        '''To show date on the browser'''
+        def __init__(self,thedateT):
+            self.date = thedateT
+        def __repr__(self):
+            return f"{self.date}"
+    dateANDtime = Showdate(datetime.date.today())
+    print(isinstance(dateANDtime,Showdate))
+    print(dateANDtime.date)
+    print(dateANDtime.__repr__())
+
+    return render_template("home.html", dateANDtime=dateANDtime)
+
+
 if __name__ == "__main__":
     localhost = "127.0.0.1" or "::"
     app.run(

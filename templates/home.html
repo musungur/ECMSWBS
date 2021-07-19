@@ -22,6 +22,14 @@ Ecommerce Websites
     // Java Scripts below
 </script>
 -->
+<p id="DateTime"></p>
+
+<form action="/date" method="GET">
+    {% if dateANDtime != "" %}
+        {{dateANDtime}}
+    {% endif %}
+    <input type="submit" value="Show Date" onclick="DateToday()">
+</form>
 <p id="home">
     <select>
         <option value="Management" selected disabled >HOME</option>
