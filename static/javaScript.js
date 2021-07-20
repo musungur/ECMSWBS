@@ -29,6 +29,7 @@ function userOutputADDtoInnHtml(){
 // delay - on python button form1
 function pyThonForm1Delay(){
     let typed = document.getElementById("py").value;
+    //document.getElementById("useroutput").style.color = Green;
     document.getElementById("useroutput").innerHTML = "Submitting your inputs: '..."+ typed + "...'";
     setTimeout(function(){
         document.getElementById("useroutput").innerHTML = "Submitted successful!!";
@@ -38,9 +39,23 @@ function pyThonForm1Delay(){
 // read from Backup - Form3 display in id=FromOutside
 function GetDataRead(){
     document.getElementById("FromOutside").innerHTML = data;
+    console.log(data)
 }
 
-// read date id=DateTime
+// read/show date id=DateTime
 function DateToday(){
     document.getElementById("DateTime").innerHTML = dateANDtime;
+    console.log(dataANDtime)
+}
+
+// Hide the date
+function hideDate(){
+    document.getElementById("DateTime").innerHTML = "";
+    console.log("emptied")
+}
+
+function testGETpythodpayloads(){
+
+    document.getElementById("testGETpythodpayloads").innerHTML = datarequestdums;
+    console.log(datarequestdums)
 }

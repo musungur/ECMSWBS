@@ -30,6 +30,7 @@ Ecommerce Websites
     {% endif %}
     <input type="submit" value="Show Date" onclick="DateToday()">
 </form>
+<input id="hideDate" type="button" onclick="hideDate()" value="Hide Date" >
 <p id="home">
     <select>
         <option value="Management" selected disabled >HOME</option>
@@ -89,6 +90,17 @@ Name: <input id="userInput" type="text" placeholder="Whats your name" />
 <input type="button" value="delete" onclick="deleteFromList()">
 
 <p id="readFrom"></p>
+
+<p id="testgTpythodpayloads"></p>
+<form action="/fromRequestpython" method="GET">
+    {% if datarequest != "" %}
+        {{datarequest}}
+    {% endif %}
+    <input type="submit" value="displayFronServer" onclick="testgTpythodpayloads()">
+
+</form>
+
+
 
 <!----Below has been commented in order to put this code in a separate JavaScript js file
 

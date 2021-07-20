@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, url_for,redirect
+import requests
 import os
 import json
 import time
@@ -50,11 +51,19 @@ def get_Imag():
 # post to the browser
 @app.route("/read",methods=["GET"])
 def readi():
+    '''testing out response datain headers,body,
+    def HeaderBody(*args,**keyvalueargs):
+        print(keyvalueargs)
+        return keyvalueargs
+    headersd = {"content-type":"text/html"}
+    HDd = HeaderBody(headersd)
+    '''
     with open("testUserInputstore.txt","r") as stre:
         openn = stre.readlines()
 
-        data = json.dumps(openn).split(', ',30)
+        dataar = json.dumps(openn).split(', ',30)
 
+        data = dataar
         return render_template("home.html", data=data)
 
 ''' delete from list/ Opted
@@ -87,6 +96,28 @@ def displayTime():
 
     return render_template("home.html", dateANDtime=dateANDtime)
 
+@app.route("/fromRequestpython", methods=["GET"])
+def Getrequest():
+    url = "https://httpbin.org/get"
+    #url = "https://github.com/musungur"
+    PARAMS = {"name":"Robert","Age":20}
+    HEADEADD = {"content-type":"text/html","encoding":"utf-8"}
+    res = requests.get(url,params=PARAMS,stream=True,headers=HEADEADD)
+    pos = res.content
+    print("\n***prints .content\n***")
+    print(pos)
+
+    postext = res.text
+    print("\n***prints .text\n***")
+    print(postext)
+    datarequest = json.loads(postext)
+    print("\n**Prints json.loads**\n")
+    print(datarequest)
+    print("\n***prints json.dumps***\n")
+    datarequestdums = json.dumps(postext)
+    print(datarequestdums)
+
+    return render_template("home.html", datarequest=datarequest) 
 
 if __name__ == "__main__":
     localhost = "127.0.0.1" or "::"
